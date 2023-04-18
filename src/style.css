@@ -27,3 +27,23 @@
     background-color: #04AA6D;
     color: white;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+caption {
+    font-size: 20px
+}
+
+th {
+    background-color: #04AA6D;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+
+}
