@@ -27,3 +27,22 @@
     background-color: #04AA6D;
     color: white;
 }
+
+table{
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #04AA6D;
+}
+.center {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    vertical-align: middle;
+}
