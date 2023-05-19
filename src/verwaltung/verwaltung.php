@@ -1,3 +1,5 @@
+<?php
+    include "../VerbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -7,14 +9,14 @@
 </head>
 <body>
 <?php
-    echo "test";
-    include "getFormData.php";
-     echo $schueler['SchuelerId']
+    $conn =  new DatabaseConnection();
+    $schueler = $conn->getData("SELECT * FROM t_Schueler;");
+    $strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
 ?>
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="..">Dashboard</a></li>
+        <li><a href="../index.php">Dashboard</a></li>
         <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
     </ul>
@@ -24,16 +26,20 @@
 <h4>Strafe hinzufügen</h4>
 <form method="POST" action="strafeHinzufuegen.php">
     <label for="schuelerField">Schüler: </label><br>
-    <select type="text" name="schueler" id="schuelerField">
-        <?php foreach($schueler as $schueler){ ?>
-        <option value="<?php echo $schueler['SchuelerId'] ?>">
+    <select name="schueler" id="schuelerField">
+        <?php foreach($schueler as $oneSchueler){ ?>
+        <option value="<?php echo $oneSchueler['SchuelerId'] ?>">
             <?php
-            echo $schueler['Vorname'] $schueler['Nachname'] ?></option>
-
+            echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
         <?php } ?>
     </select><br>
     <label for="strafeField">Strafnummer</label><br>
-    <select type="number" name="strafNummer" id="strafeField">
+    <select name="strafNummer" id="strafeField">
+        <?php foreach($strafen as $strafe){ ?>
+            <option value="<?php echo $strafe['StrafeId'] ?>">
+                <?php
+                echo $strafe['Bezeichnung'] ?></option>
+        <?php } ?>
     </select><p>
     <input type="submit" value="Abschicken">
 </form>

@@ -1,9 +1,10 @@
 <?php
 
 class DatabaseConnection {
-    private $servername = "localhost";
-    private $username = "root";
+    private $host = "localhost";
+    private $user = "root";
     private $password = "root";
+    private $database = "strafenkatalog";
     private $con;
 
     function __construct() {
@@ -12,11 +13,8 @@ class DatabaseConnection {
 
     function connectDB()
     {
-        $this->con = new PDO("mysql:host=$this->servername;dbname=strafenkatalog", $this->username, $this->password);
-        // set the PDO error mode to exception
-        $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        return $this->con;
+        $con = mysqli_connect($this->host,$this->user,$this->password,$this->database);
+        return $con;
     }
 
     function getData($query) {
@@ -26,5 +24,13 @@ class DatabaseConnection {
         }
         if(!empty($resultset))
             return $resultset;
+    }
+
+    function setData($query) {
+        if ($this->con->query($query) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $query . "<br>" . $this->con->error;
+        }
     }
 }
