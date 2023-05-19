@@ -11,7 +11,7 @@
     <ul>
         <li><a href="" class="active">Dashboard</a></li>
         <li><a href="strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
-        <li><a href="verwaltung/verwaltung.html">Verwaltung</a></li>
+        <li><a href="verwaltung/verwaltung.php">Verwaltung</a></li>
     </ul>
 </nav>
 
