@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Verwaltung</title>
+    <link rel="stylesheet" href="verwaltung.css">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -41,7 +42,7 @@
                 echo $strafe['Bezeichnung'] ?></option>
         <?php } ?>
     </select><p>
-    <input type="submit" value="Abschicken">
+    <input class="input" type="submit" value="Abschicken">
 </form>
 
 <p>Bei klicken auf den Button "Abschicken", wird eine HTTP Request ausgelöst, der einen neuen Strafeintrag erstellt</p>
