@@ -24,8 +24,12 @@
 }
 
 .nav-bar .active {
-    background-color: #04AA6D;
+    background-color: #4CAF50;
     color: white;
+}
+
+.nav-bar .active li a:hover {
+    background-color: #45a049;
 }
 
 table{
@@ -35,14 +39,16 @@ table{
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    text-align: center !important;
 }
 
 th {
     background-color: #04AA6D;
 }
+
 .center {
     margin: auto;
-    text-align: center;
     width: 50%;
+    text-align: left;
     vertical-align: middle;
 }
