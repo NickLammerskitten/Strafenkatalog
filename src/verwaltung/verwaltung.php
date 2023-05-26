@@ -38,46 +38,41 @@
     <form method="POST" action="strafeHinzufuegen.php">
         <label for="schuelerField">Schüler: </label><br>
         <select name="schueler" id="schuelerField">
-            <?php foreach($schueler as $oneSchueler){ ?>
-            <option value="<?php echo $oneSchueler['SchuelerId'] ?>">
-                <?php
-                echo $strafe['Bezeichnung'] ?></option>
-        <?php } ?>
-    </select><p>
-    <input class="input" type="submit" value="Hinzufügen">
-</form>
-
-<h4>Strafe bearbeiten</h4>
-<form method="POST" action="strafeBegleichen.php">
-    <label for="strafeField">Strafnummer</label><br>
-    <select name="strafNummer" id="strafeField">
-        <?php foreach($erfassteStrafen as $erfassteStrafe){
-            if ($erfassteStrafe['DatumBeglichen'] == null) {?>
-            <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
-                <?php
-                echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
-        <?php
-                }
-            }
-            ?>
-    </select><p>
-        <input class="input" type="submit" value="Als beglichen markieren">
-</form>
-                echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
+            <?php foreach ($schueler as $oneSchueler) { ?>
+                <option value="<?php echo $oneSchueler['SchuelerId'] ?>">
+                    <?php
+                    echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
             <?php } ?>
         </select><br>
         <label for="strafeField">Strafnummer</label><br>
         <select name="strafNummer" id="strafeField">
-            <?php foreach($strafen as $strafe){ ?>
+            <?php foreach ($strafen as $strafe) { ?>
                 <option value="<?php echo $strafe['StrafeId'] ?>">
                     <?php
                     echo $strafe['Bezeichnung'] ?></option>
             <?php } ?>
-        </select><p>
-        <input class="input" type="submit" value="Abschicken">
+        </select>
+        <p>
+            <input class="input" type="submit" value="Hinzufügen">
     </form>
 
-    <p>Bei klicken auf den Button "Abschicken", wird eine HTTP Request ausgelöst, der einen neuen Strafeintrag erstellt</p>
+    <h4>Strafe bearbeiten</h4>
+    <form method="POST" action="strafeBegleichen.php">
+        <label for="strafeField">Strafnummer</label><br>
+        <select name="strafNummer" id="strafeField">
+            <?php foreach ($erfassteStrafen as $erfassteStrafe) {
+                if ($erfassteStrafe['DatumBeglichen'] == null) { ?>
+                    <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
+                        <?php
+                        echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
+                    <?php
+                }
+            }
+            ?>
+        </select>
+        <p>
+            <input class="input" type="submit" value="Als beglichen markieren">
+    </form>
 </div>
 </body>
 </html>
