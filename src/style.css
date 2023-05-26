@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #4CAF50;
 }
 
 .nav-bar li {
@@ -43,7 +43,7 @@ table, th, td {
 }
 
 th {
-    background-color: #04AA6D;
+    background-color: #4CAF50;
 }
 
 .center {
