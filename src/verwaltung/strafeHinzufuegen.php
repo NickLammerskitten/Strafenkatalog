@@ -1,9 +1,9 @@
 <?php
-    include "../VerbindungDatenbank.php";
+include "../VerbindungDatenbank.php";
 
-    $conn = new DatabaseConnection();
+$conn = new DatabaseConnection();
 
-    try {
+try {
     $schuelerId = $_REQUEST['schueler'];
     $strafeId = $_REQUEST['strafNummer'];
     $datumErfassung = date("Y-m-d");
@@ -12,6 +12,6 @@
                 VALUES ('$schuelerId' , '$strafeId', '$datumErfassung');");
 
     header('Location: verwaltung.php');
-    } catch(PDOException $e) {
-        echo "<br>" . $e->getMessage();
-    }
+} catch (PDOException $e) {
+    echo "<br>" . $e->getMessage();
+}

@@ -13,6 +13,13 @@
     $conn =  new DatabaseConnection();
     $schueler = $conn->getData("SELECT * FROM t_Schueler;");
     $strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
+
+    $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
+                                                                            LEFT JOIN t_Schueler tS
+                                                                                      on tS.SchuelerId = t_HatStrafe.FKSchuelerId
+                                                                            LEFT JOIN t_Strafe t
+                                                                                      on t_HatStrafe.FKStrafeId = t.StrafeId;
+");
 ?>
 <!-- Navigation -->
 <nav class="nav-bar">
@@ -34,6 +41,28 @@
             <?php foreach($schueler as $oneSchueler){ ?>
             <option value="<?php echo $oneSchueler['SchuelerId'] ?>">
                 <?php
+                echo $strafe['Bezeichnung'] ?></option>
+        <?php } ?>
+    </select><p>
+    <input class="input" type="submit" value="Hinzufügen">
+</form>
+
+<h4>Strafe bearbeiten</h4>
+<form method="POST" action="strafeBegleichen.php">
+    <label for="strafeField">Strafnummer</label><br>
+    <select name="strafNummer" id="strafeField">
+        <?php foreach($erfassteStrafen as $erfassteStrafe){
+            if ($erfassteStrafe['DatumBeglichen'] == null) {?>
+            <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
+                <?php
+                echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
+        <?php
+                }
+            }
+            ?>
+    </select><p>
+        <input class="input" type="submit" value="Als beglichen markieren">
+</form>
                 echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
             <?php } ?>
         </select><br>
