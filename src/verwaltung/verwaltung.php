@@ -1,5 +1,12 @@
 <?php
     include "../verbindungDatenbank.php"; ?>
+<?php
+session_start();
+if(!isset($_SESSION["username"])){
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -24,7 +31,7 @@
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../index.php">Dashboard</a></li>
+        <li><a href="../strafenkatalog.php">Dashboard</a></li>
         <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
