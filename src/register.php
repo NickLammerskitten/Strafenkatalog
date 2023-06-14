@@ -6,17 +6,17 @@
 </head>
 <body>
 <?php
-if(isset($_POST["submit"])){
+if (isset($_POST["submit"])) {
     require("mysql.php");
-    $stmt = $mysql->prepare("SELECT * FROM accounts WHERE USERNAME = :user"); //Username überprüfen
+    $stmt = $mysql->prepare("SELECT * FROM t_Accounts WHERE USERNAME = :user");//Username überprüfen
     $stmt->bindParam(":user", $_POST["username"]);
     $stmt->execute();
     $count = $stmt->rowCount();
-    if($count == 0){
+    if ($count == 0) {
         //Username ist frei
-        if($_POST["pw"] == $_POST["pw2"]){
+        if ($_POST["pw"] == $_POST["pw2"]) {
             //User anlegen
-            $stmt = $mysql->prepare("INSERT INTO accounts (USERNAME, PASSWORD) VALUES (:user, :pw)");
+            $stmt = $mysql->prepare("INSERT INTO t_Accounts (USERNAME, PASSWORD) VALUES (:user, :pw)");
             $stmt->bindParam(":user", $_POST["username"]);
             $hash = password_hash($_POST["pw"], PASSWORD_BCRYPT);
             $stmt->bindParam(":pw", $hash);
