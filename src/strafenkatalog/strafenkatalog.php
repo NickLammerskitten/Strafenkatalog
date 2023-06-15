@@ -1,3 +1,5 @@
+<?php
+include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,7 +17,10 @@
         <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>
     </ul>
 </nav>
-
+<?php
+$conn =  new DatabaseConnection();
+$strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe;");
+?>
 <!-- Content -->
 <!-- Tabelle_Strafenkatalog -->
 <div class="center">
@@ -23,28 +28,14 @@
     <table>
         <tr>
             <th>Fehlverhalten</th>
-            <th>Strafe</th>
+            <th>Strafe in €</th>
         </tr>
+        <?php foreach ($strafen as $strafe) { ?>
         <tr>
-            <td>Laptop nicht gesperrt</td>
-            <td>Kuchen mitbringen</td>
+            <td><?php echo $strafe['Bezeichnung'] ?></td>
+            <td><?php echo $strafe['Kosten'] ?></td>
         </tr>
-        <tr>
-            <td>Zu spät gekommen</td>
-            <td>1Cent/min in Kurskasse</td>
-        </tr>
-        <tr>
-            <td>Placeholder1</td>
-            <td>Placeholder1</td>
-        </tr>
-        <tr>
-            <td>Placeholder2</td>
-            <td>Placeholder2</td>
-        </tr>
-        <tr>
-            <td>Placeholder2</td>
-            <td>Placeholder2</td>
-        </tr>
+        <?php } ?>
     </table>
 </div>
 </body>

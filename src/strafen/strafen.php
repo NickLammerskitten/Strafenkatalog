@@ -21,7 +21,7 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
 <nav class="nav-bar">
     <ul>
         <li><a href="../index.php">Dashboard</a></li>
-        <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
+        <li><a href="../strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="" class="active">Strafen</a></li>
         <li><a href="../verwaltung/verwaltung.php" >Verwaltung</a></li>
     </ul>
