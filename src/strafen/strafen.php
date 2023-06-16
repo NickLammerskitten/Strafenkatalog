@@ -23,13 +23,23 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
         <li><a href="../strafenkatalog.php">Dashboard</a></li>
         <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
         <li><a href="" class="active">Strafen</a></li>
-        <li><a href="../verwaltung/verwaltung.php" >Verwaltung</a></li>
+        <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>
     </ul>
 </nav>
 
 <!-- Content -->
 <div class="center">
-    <h1>Strafen</h1>
+    <div class="inline">
+        <h1>Strafen</h1>
+        <!-- Info Button -->
+        <div class="info" id="center">
+            &#9432;
+
+            <span class="extra-info" id="center">
+            Hier findest du eine Liste aller Strafen.
+            </span>
+        </div>
+    </div>
     <table>
         <tr>
             <th>Vorname, Nachname</th>
@@ -38,14 +48,14 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
             <th>Datum Beglichen</th>
             <th>Kosten</th>
         </tr>
-        <?php foreach($strafen as $oneStrafe){ ?>
-        <tr>
-            <td><?php echo $oneStrafe['Vorname'] . " " . $oneStrafe['Nachname']?></td>
-            <td><?php echo $oneStrafe['Bezeichnung']?></td>
-            <td><?php echo $oneStrafe['DatumErfassung']?></td>
-            <td><?php echo $oneStrafe['DatumBeglichen']?></td>
-            <td><?php echo $oneStrafe['Kosten']?></td>
-        </tr>
+        <?php foreach ($strafen as $oneStrafe) { ?>
+            <tr>
+                <td><?php echo $oneStrafe['Vorname'] . " " . $oneStrafe['Nachname'] ?></td>
+                <td><?php echo $oneStrafe['Bezeichnung'] ?></td>
+                <td><?php echo $oneStrafe['DatumErfassung'] ?></td>
+                <td><?php echo $oneStrafe['DatumBeglichen'] ?></td>
+                <td><?php echo $oneStrafe['Kosten'] ?></td>
+            </tr>
         <?php } ?>
     </table>
 </div>
