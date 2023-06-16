@@ -1,5 +1,5 @@
 <?php
-    include "../verbindungDatenbank.php"; ?>
+include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,11 +10,11 @@
 </head>
 <body>
 <?php
-    $conn =  new DatabaseConnection();
-    $schueler = $conn->getData("SELECT * FROM t_Schueler;");
-    $strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
+$conn = new DatabaseConnection();
+$schueler = $conn->getData("SELECT * FROM t_Schueler;");
+$strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
 
-    $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
+$erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
                                                                             LEFT JOIN t_Schueler tS
                                                                                       on tS.SchuelerId = t_HatStrafe.FKSchuelerId
                                                                             LEFT JOIN t_Strafe t
@@ -44,7 +44,7 @@
                     echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
             <?php } ?>
         </select><br>
-        <label for="strafeField">Strafnummer</label><br>
+        <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
             <?php foreach ($strafen as $strafe) { ?>
                 <option value="<?php echo $strafe['StrafeId'] ?>">
@@ -58,7 +58,7 @@
 
     <h4>Strafe bearbeiten</h4>
     <form method="POST" action="strafeBegleichen.php">
-        <label for="strafeField">Strafnummer</label><br>
+        <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
             <?php foreach ($erfassteStrafen as $erfassteStrafe) {
                 if ($erfassteStrafe['DatumBeglichen'] == null) { ?>
@@ -72,6 +72,17 @@
         </select>
         <p>
             <input class="input" type="submit" value="Als beglichen markieren">
+    </form>
+
+    <h4>Strafe erstellen</h4>
+    <form method="POST" action="strafeErstellen.php">
+        <label for="strafeField">Bezeichnung</label><br>
+        <input placeholder="Neue Strafe" type="text" class="input" name="strafeBezeichnung" id="strafeField">
+        <p></p>
+        <label for="strafeKostenField">Kosten</label><br>
+        <input placeholder="10.50" type="text" class="input" name="strafeKosten" id="strafeKostenField">
+        <p></p>
+        <input class="input" type="submit" value="Neue Strafe anlegen">
     </form>
 </div>
 </body>
