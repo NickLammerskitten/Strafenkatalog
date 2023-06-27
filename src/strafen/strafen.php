@@ -9,7 +9,7 @@ include "../verbindungDatenbank.php"; ?>
 </head>
 <body>
 <?php
-$conn =  new DatabaseConnection();
+$conn = new DatabaseConnection();
 $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
                                     LEFT JOIN t_Schueler tS 
                                         on tS.SchuelerId = t_HatStrafe.FKSchuelerId
