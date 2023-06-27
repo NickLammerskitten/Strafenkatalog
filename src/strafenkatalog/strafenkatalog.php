@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION["username"])){
+  header("Location: index.php");
+  exit;
+}
 include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -11,7 +16,7 @@ include "../verbindungDatenbank.php"; ?>
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../index.php">Dashboard</a></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
         <li><a href="" class="active">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>

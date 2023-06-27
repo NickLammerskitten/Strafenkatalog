@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <title>Strafenkatalog</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Login</title>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="nav-bar">
-    <ul>
-        <li><a href="" class="active">Dashboard</a></li>
-        <li><a href="strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
-        <li><a href="strafen/strafen.php">Strafen</a></li>
-        <li><a href="verwaltung/verwaltung.php">Verwaltung</a></li>
-    </ul>
-</nav>
-
-<!-- Content -->
-<div class="center">
-    <h1>Dashboard</h1>
-    <p>
-        Herzlich willkommen im Strafenkatalog von unserem Kurs. <br>
-        Hier kannst du immer den aktuellsten Stand der festgelegten <br>
-        Strafen sehen und welchem Kommilitonen welche Strafen zugeordnet <br>
-        wurden. <br>
-        Die Verwaltung der Strafen ist ebenfalls über diese Seite <br>
-        zu steuern.
-    </p>
-
-    <h4>Vorhaben</h4>
-    <ul>
-        <li>Dashboard zur Erklärung der Seite</li>
-        <li>Strafenkatalog als Übersicht der möglichen Strafen</li>
-        <li>Strafen als Liste, welcher Kommilitone, welche Strafen erhalten hat</li>
-        <li>Verwaltung der Strafen</li>
-    </ul>
-</div>
+<?php
+if (isset($_POST["submit"])) {
+    require("mysql.php");
+    $stmt = $mysql->prepare("SELECT * FROM t_Accounts WHERE USERNAME = :user");//Username überprüfen
+    $stmt->bindParam(":user", $_POST["username"]);
+    $stmt->execute();
+    $count = $stmt->rowCount();
+    if ($count == 1) {
+        //Username ist frei
+        $row = $stmt->fetch();
+        if (password_verify($_POST["pw"], $row["PASSWORD"])) {
+            session_start();
+            $_SESSION["username"] = $row["USERNAME"];
+            header("Location: dashboard.php");
+        } else {
+            echo "Der Login ist fehlgeschlagen";
+        }
+    } else {
+        echo "Der Login ist fehlgeschlagen";
+    }
+}
+?>
+<h1>Anmelden</h1>
+<form action="index.php" method="post">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="pw" placeholder="Passwort" required><br>
+    <button type="submit" name="submit">Einloggen</button>
+</form>
+<br>
+<a href="register.php">Noch keinen Account?</a>
 </body>
 </html>

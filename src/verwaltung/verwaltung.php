@@ -24,8 +24,8 @@
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../index.php">Dashboard</a></li>
-        <li><a href="../strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
+        <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
     </ul>
@@ -44,7 +44,7 @@
                     echo $oneSchueler['Vorname'] . " " . $oneSchueler['Nachname'] ?></option>
             <?php } ?>
         </select><br>
-        <label for="strafeField">Strafnummer</label><br>
+        <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
             <?php foreach ($strafen as $strafe) { ?>
                 <option value="<?php echo $strafe['StrafeId'] ?>">
@@ -58,7 +58,7 @@
 
     <h4>Strafe bearbeiten</h4>
     <form method="POST" action="strafeBegleichen.php">
-        <label for="strafeField">Strafnummer</label><br>
+        <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
             <?php foreach ($erfassteStrafen as $erfassteStrafe) {
                 if ($erfassteStrafe['DatumBeglichen'] == null) { ?>
@@ -72,6 +72,17 @@
         </select>
         <p>
             <input class="input" type="submit" value="Als beglichen markieren">
+    </form>
+
+    <h4>Strafe erstellen</h4>
+    <form method="POST" action="strafeErstellen.php">
+        <label for="strafeField">Bezeichnung</label><br>
+        <input placeholder="Neue Strafe" type="text" class="input" name="strafeBezeichnung" id="strafeField">
+        <p></p>
+        <label for="strafeKostenField">Kosten</label><br>
+        <input placeholder="10.50" type="text" class="input" name="strafeKosten" id="strafeKostenField">
+        <p></p>
+        <input class="input" type="submit" value="Neue Strafe anlegen">
     </form>
 </div>
 </body>
