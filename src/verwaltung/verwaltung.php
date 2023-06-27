@@ -1,5 +1,5 @@
 <?php
-    include "../verbindungDatenbank.php"; ?>
+include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -25,7 +25,7 @@
 <nav class="nav-bar">
     <ul>
         <li><a href="../dashboard.php">Dashboard</a></li>
-        <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
+        <li><a href="../strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
     </ul>
