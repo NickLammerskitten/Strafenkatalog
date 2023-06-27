@@ -56,7 +56,7 @@ include "../verbindungDatenbank.php"; ?>
             <input class="input" type="submit" value="Hinzufügen">
     </form>
 
-    <h4>Strafe bearbeiten</h4>
+    <h4>Strafe als beglichen markieren</h4>
     <form method="POST" action="strafeBegleichen.php">
         <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
@@ -71,10 +71,28 @@ include "../verbindungDatenbank.php"; ?>
             ?>
         </select>
         <p>
-            <input class="input" type="submit" value="Als beglichen markieren">
+            <input class="input" type="submit" value="Begleichen">
     </form>
 
-    <h4>Strafe erstellen</h4>
+    <h4>Strafe löschen</h4>
+    <form method="POST" action="strafeLoeschen.php">
+        <label for="strafeField">Strafe</label><br>
+        <select name="strafNummer" id="strafeField">
+            <?php foreach ($erfassteStrafen as $erfassteStrafe) { ?>
+                    <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
+                        <?php
+                        echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
+                    <?php
+            }
+            ?>
+        </select>
+        <p>
+            <input class="input" type="submit" value="Löschen">
+    </form>
+
+    <hr>
+
+    <h4>Neue Strafe anlegen</h4>
     <form method="POST" action="strafeErstellen.php">
         <label for="strafeField">Bezeichnung</label><br>
         <input placeholder="Neue Strafe" type="text" class="input" name="strafeBezeichnung" id="strafeField">
@@ -82,7 +100,7 @@ include "../verbindungDatenbank.php"; ?>
         <label for="strafeKostenField">Kosten</label><br>
         <input placeholder="10.50" type="text" class="input" name="strafeKosten" id="strafeKostenField">
         <p></p>
-        <input class="input" type="submit" value="Neue Strafe anlegen">
+        <input class="input" type="submit" value="Anlegen">
     </form>
 </div>
 </body>
