@@ -38,6 +38,6 @@ if (isset($_POST["submit"])) {
     <button type="submit" name="submit">Erstellen</button>
 </form>
 <br>
-<a href="strafenkatalog.php">Hast du bereits einen Account?</a>
+<a href="index.php">Hast du bereits einen Account?</a>
 </body>
 </html>

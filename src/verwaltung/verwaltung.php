@@ -1,5 +1,5 @@
 <?php
-    include "../verbindungDatenbank.php"; ?>
+include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,11 +10,11 @@
 </head>
 <body>
 <?php
-$conn = new DatabaseConnection();
-$schueler = $conn->getData("SELECT * FROM t_Schueler;");
-$strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
+    $conn =  new DatabaseConnection();
+    $schueler = $conn->getData("SELECT * FROM t_Schueler;");
+    $strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
 
-$erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
+    $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
                                                                             LEFT JOIN t_Schueler tS
                                                                                       on tS.SchuelerId = t_HatStrafe.FKSchuelerId
                                                                             LEFT JOIN t_Strafe t
@@ -24,8 +24,8 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../strafenkatalog.php">Dashboard</a></li>
-        <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
+        <li><a href="../strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
     </ul>

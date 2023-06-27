@@ -17,7 +17,7 @@ if(!isset($_SESSION["username"])){
 <nav class="nav-bar">
     <ul>
         <li><a href="" class="active">Dashboard</a></li>
-        <li><a href="strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
+        <li><a href="strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="strafen/strafen.php">Strafen</a></li>
         <li><a href="verwaltung/verwaltung.php">Verwaltung</a></li>
         <a href="logout.php">Abmelden</a>

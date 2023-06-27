@@ -20,8 +20,8 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../strafenkatalog.php">Dashboard</a></li>
-        <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
+        <li><a href="../strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="" class="active">Strafen</a></li>
         <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>
     </ul>
