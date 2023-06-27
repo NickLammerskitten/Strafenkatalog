@@ -1,5 +1,5 @@
 <?php
-include "../verbindungDatenbank.php"; ?>
+    include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -24,7 +24,7 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
 <!-- Navigation -->
 <nav class="nav-bar">
     <ul>
-        <li><a href="../index.php">Dashboard</a></li>
+        <li><a href="../strafenkatalog.php">Dashboard</a></li>
         <li><a href="../strafenkatalog/strafenkatalog.html">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
