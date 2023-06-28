@@ -10,11 +10,11 @@ include "../verbindungDatenbank.php"; ?>
 </head>
 <body>
 <?php
-    $conn =  new DatabaseConnection();
-    $schueler = $conn->getData("SELECT * FROM t_Schueler;");
-    $strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
+$conn = new DatabaseConnection();
+$schueler = $conn->getData("SELECT * FROM t_Schueler;");
+$strafen = $conn->getData("SELECT StrafeId, Bezeichnung FROM t_Strafe;");
 
-    $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
+$erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeichnung, Kosten  FROM t_HatStrafe
                                                                             LEFT JOIN t_Schueler tS
                                                                                       on tS.SchuelerId = t_HatStrafe.FKSchuelerId
                                                                             LEFT JOIN t_Strafe t
@@ -55,8 +55,8 @@ include "../verbindungDatenbank.php"; ?>
                     echo $strafe['Bezeichnung'] ?></option>
             <?php } ?>
         </select>
-        <p>
-            <input class="input" type="submit" value="Hinzufügen">
+        <p></p>
+        <input class="input" type="submit" value="Hinzufügen">
     </form>
 
     <h4>Strafe als beglichen markieren</h4>
@@ -73,8 +73,8 @@ include "../verbindungDatenbank.php"; ?>
             }
             ?>
         </select>
-        <p>
-            <input class="input" type="submit" value="Begleichen">
+        <p></p>
+        <input class="input" type="submit" value="Begleichen">
     </form>
 
     <h4>Strafe löschen</h4>
@@ -82,15 +82,15 @@ include "../verbindungDatenbank.php"; ?>
         <label for="strafeField">Strafe</label><br>
         <select name="strafNummer" id="strafeField">
             <?php foreach ($erfassteStrafen as $erfassteStrafe) { ?>
-                    <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
-                        <?php
-                        echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
+                <option value="<?php echo $erfassteStrafe['StrafeNr'] ?>">
                     <?php
+                    echo $erfassteStrafe['Vorname'] . " " . $erfassteStrafe['Nachname'] . ", " . $erfassteStrafe['DatumErfassung'] . ", " . $erfassteStrafe['Bezeichnung'] ?></option>
+                <?php
             }
             ?>
         </select>
-        <p>
-            <input class="input" type="submit" value="Löschen">
+        <p></p>
+        <input class="input" type="submit" value="Löschen">
     </form>
 
     <hr>
