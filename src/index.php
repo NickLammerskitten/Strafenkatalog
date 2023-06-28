@@ -30,21 +30,18 @@ if (isset($_POST["submit"])) {
 ?>
 <h1 class="login">Strafenkatalog IT-BW 17</h1>
 <div class="center">
-<h1> Anmeldung </h1>
-
-<form action="index.php" method="post">
-
-<label for="username">Nutzername: </label><br>
-
-    <input type="text" name="username" placeholder="AxelApple" required><br>
-    <label for="password">Passwort: </label><br>
-    <input type="password" name="pw" placeholder="*****" required><br>
-    <input type="submit" name="submit" value= "Einloggen" >
-</form>
-<br>
-<button onclick="window.location.href='register.php';">
-      Account erstellen
+    <h1> Anmeldung </h1>
+    <form action="index.php" method="post">
+        <label for="username">Nutzername: </label><br>
+        <input type="text" name="username" placeholder="AxelApple" required><br>
+        <label for="password">Passwort: </label><br>
+        <input type="password" name="pw" placeholder="*****" required><br>
+        <input type="submit" name="submit" value="Einloggen">
+    </form>
+    <br>
+    <button onclick="window.location.href='register.php';">
+        Account erstellen
     </button>
-    </div>
+</div>
 </body>
 </html>

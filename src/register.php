@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Account erstellen</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
@@ -30,14 +31,22 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-<h1>Account erstellen</h1>
-<form action="register.php" method="post">
-    <input type="text" name="username" placeholder="Username" required><br>
-    <input type="password" name="pw" placeholder="Passwort" required><br>
-    <input type="password" name="pw2" placeholder="Passwort wiederholen" required><br>
-    <button type="submit" name="submit">Erstellen</button>
-</form>
-<br>
-<a href="index.php">Hast du bereits einen Account?</a>
+<h1 class="login">Strafenkatalog IT-BW 17</h1>
+<div class="center">
+    <h1>Registrierung</h1>
+    <form action="register.php" method="post">
+        <label for="username">Nutzername: </label><br>
+        <input type="text" name="username" id="username" placeholder="AxelApple" required><br>
+        <label for="password">Passwort: </label><br>
+        <input type="password" name="pw" id="password" placeholder="*****" required><br>
+        <label for="password2">Passwort wiederholen: </label><br>
+        <input type="password" name="pw2" id="password2" placeholder="*****" required><br>
+        <input type="submit" name="submit" value="Erstellen">
+    </form>
+    <br>
+    <button onclick="window.location.href='index.php'">
+        Hast du bereits einen Account?
+    </button>
+</div>
 </body>
 </html>
