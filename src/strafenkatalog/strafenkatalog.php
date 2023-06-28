@@ -1,7 +1,7 @@
 <?php
 include "../verbindungDatenbank.php"; ?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
@@ -27,7 +27,7 @@ $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bez
     <h1>Strafenkatalog</h1>
     <table id="strafenkatalog">
         <tr>
-            <th onclick="sortTable(0)" class="sortable">Fehlverhalten</th>
+            <th class="sortable" onclick="sortTable(0)">Fehlverhalten</th>
             <th>Strafe in €</th>
         </tr>
         <?php foreach ($strafen as $strafe) { ?>
