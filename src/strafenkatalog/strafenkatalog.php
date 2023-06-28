@@ -18,7 +18,7 @@ include "../verbindungDatenbank.php"; ?>
     </ul>
 </nav>
 <?php
-$conn =  new DatabaseConnection();
+$conn = new DatabaseConnection();
 $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bezeichnung;");
 ?>
 <!-- Content -->
@@ -39,9 +39,7 @@ $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bez
     </table>
 </div>
 
-
-<script src="sortStrafen.ts">
-</script>
+<script src="sortStrafen.ts"></script>
 
 </body>
 </html>

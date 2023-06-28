@@ -8,12 +8,6 @@ class DatabaseConnection {
     private $con;
 
     function __construct() {
-        session_start();
-        if(!isset($_SESSION["username"])){
-            header("Location: index.php");
-            exit;
-        }
-
         $this->con =  $this->connectDB();
     }
 

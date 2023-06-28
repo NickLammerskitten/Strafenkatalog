@@ -40,6 +40,7 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
             </span>
         </div>
     </div>
+
     <table>
         <tr>
             <th>Vorname, Nachname</th>
