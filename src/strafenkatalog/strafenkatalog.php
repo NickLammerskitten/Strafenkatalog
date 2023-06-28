@@ -15,6 +15,9 @@ include "../verbindungDatenbank.php"; ?>
         <li><a href="" class="active">Strafenkatalog</a></li>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>
+        <div class="order-container">
+        <li><a href="../logout.php">Abmelden</a></li>
+        </div>
     </ul>
 </nav>
 <?php

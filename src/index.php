@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
@@ -27,13 +28,20 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-<h1>Anmelden</h1>
-<form action="index.php" method="post">
-    <input type="text" name="username" placeholder="Username" required><br>
-    <input type="password" name="pw" placeholder="Passwort" required><br>
-    <button type="submit" name="submit">Einloggen</button>
-</form>
-<br>
-<a href="register.php">Noch keinen Account?</a>
+<h1 class="login">Strafenkatalog IT-BW 17</h1>
+<div class="center">
+    <h1> Anmeldung </h1>
+    <form action="index.php" method="post">
+        <label for="username">Nutzername: </label><br>
+        <input type="text" name="username" placeholder="AxelApple" required><br>
+        <label for="password">Passwort: </label><br>
+        <input type="password" name="pw" placeholder="*****" required><br>
+        <input type="submit" name="submit" value="Einloggen">
+    </form>
+    <br>
+    <button onclick="window.location.href='register.php';">
+        Account erstellen
+    </button>
+</div>
 </body>
 </html>

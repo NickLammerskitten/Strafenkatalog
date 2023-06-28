@@ -20,7 +20,9 @@ if(!isset($_SESSION["username"])){
         <li><a href="strafenkatalog/strafenkatalog.php">Strafenkatalog</a></li>
         <li><a href="strafen/strafen.php">Strafen</a></li>
         <li><a href="verwaltung/verwaltung.php">Verwaltung</a></li>
-        <a href="logout.php">Abmelden</a>
+        <div class="order-container">
+        <li><a href="logout.php">Abmelden</a></li>
+       </div>
     </ul>
 </nav>
 
