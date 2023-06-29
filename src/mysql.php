@@ -1,5 +1,4 @@
 <?php
-
 $host = "localhost";
 $name = "strafenkatalog";
 $user = "root";
@@ -9,4 +8,3 @@ try{
 } catch (PDOException $e){
     echo "SQL Error: ".$e->getMessage();
 }
-?>

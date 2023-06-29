@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"])){
+if (!isset($_SESSION["username"])) {
     header("Location: index.php");
     exit;
 }
@@ -21,8 +21,8 @@ if(!isset($_SESSION["username"])){
         <li><a href="strafen/strafen.php">Strafen</a></li>
         <li><a href="verwaltung/verwaltung.php">Verwaltung</a></li>
         <div class="order-container">
-        <li><a href="logout.php">Abmelden</a></li>
-       </div>
+            <li><a href="logout.php">Abmelden</a></li>
+        </div>
     </ul>
 </nav>
 

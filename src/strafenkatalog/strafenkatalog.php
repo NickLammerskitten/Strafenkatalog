@@ -16,7 +16,7 @@ include "../verbindungDatenbank.php"; ?>
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="../verwaltung/verwaltung.php">Verwaltung</a></li>
         <div class="order-container">
-        <li><a href="../logout.php">Abmelden</a></li>
+            <li><a href="../logout.php">Abmelden</a></li>
         </div>
     </ul>
 </nav>
@@ -25,7 +25,7 @@ $conn = new DatabaseConnection();
 $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bezeichnung;");
 ?>
 <!-- Content -->
-<!-- Tabelle_Strafenkatalog -->
+<!-- Tabelle Strafenkatalog -->
 <div class="center">
     <h1>Strafenkatalog</h1>
     <table id="strafenkatalog">
@@ -34,15 +34,16 @@ $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bez
             <th>Strafe in €</th>
         </tr>
         <?php foreach ($strafen as $strafe) { ?>
-        <tr>
-            <td><?php echo $strafe['Bezeichnung'] ?></td>
-            <td><?php echo $strafe['Kosten'] ?></td>
-        </tr>
+            <tr>
+                <td><?php echo $strafe['Bezeichnung'] ?></td>
+                <td><?php echo $strafe['Kosten'] ?></td>
+            </tr>
         <?php } ?>
     </table>
 </div>
 
-<script src="sortStrafen.ts"></script>
+<!-- JavaScript Sort -->
+<script src="sortStrafen.js"></script>
 
 </body>
 </html>
