@@ -5,10 +5,10 @@ include "../verbindungDatenbank.php"; ?>
 <head>
     <meta charset="UTF-8">
     <title>Verwaltung</title>
-    <link rel="stylesheet" href="verwaltung.css">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+<!-- Get Data -->
 <?php
 $conn = new DatabaseConnection();
 $schueler = $conn->getData("SELECT * FROM t_Schueler;");
@@ -29,14 +29,16 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
         <li><a href="../strafen/strafen.php">Strafen</a></li>
         <li><a href="" class="active">Verwaltung</a></li>
         <div class="order-container">
-       <li><a href="../logout.php">Abmelden</a></li>
-       </div>
+            <li><a href="../logout.php">Abmelden</a></li>
+        </div>
     </ul>
 </nav>
 
 <!-- Content -->
 <div class="center">
     <h1>Verwaltung</h1>
+
+    <!-- Strafe hinzufügen -->
     <h4>Strafe hinzufügen</h4>
     <form method="POST" action="strafeHinzufuegen.php">
         <label for="schuelerField">Schüler: </label><br>
@@ -59,6 +61,7 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
         <input class="input" type="submit" value="Hinzufügen">
     </form>
 
+    <!-- Strafe begleichen -->
     <h4>Strafe als beglichen markieren</h4>
     <form method="POST" action="strafeBegleichen.php">
         <label for="strafeField">Strafe</label><br>
@@ -77,6 +80,7 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
         <input class="input" type="submit" value="Begleichen">
     </form>
 
+    <!-- Strafe löschen -->
     <h4>Strafe löschen</h4>
     <form method="POST" action="strafeLoeschen.php">
         <label for="strafeField">Strafe</label><br>
@@ -95,6 +99,7 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
 
     <hr>
 
+    <!-- Neue Strafe -->
     <h4>Neue Strafe anlegen</h4>
     <form method="POST" action="strafeErstellen.php">
         <label for="strafeField">Bezeichnung</label><br>
