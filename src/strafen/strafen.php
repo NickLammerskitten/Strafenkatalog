@@ -37,19 +37,18 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
         <!-- Info Button -->
         <div class="info" id="center">
             &#9432;
-
             <span class="extra-info" id="center">
-            Hier findest du eine Liste aller Strafen.
+            Hier findest du eine Liste aller erfassten Strafen.
             </span>
         </div>
     </div>
 
-    <table>
+    <table id="sortabletable">
         <tr>
-            <th>Vorname, Nachname</th>
-            <th>Strafe</th>
-            <th>Datum Erfassung</th>
-            <th>Datum Beglichen</th>
+            <th class="sortable" onclick="sortTable(0)">Vorname, Nachname</th>
+            <th class="sortable" onclick="sortTable(1)">Strafe</th>
+            <th class="sortable" onclick="sortTable(2)">Datum Erfassung</th>
+            <th class="sortable" onclick="sortTable(3)">Datum Beglichen</th>
             <th>Kosten</th>
         </tr>
         <?php foreach ($strafen as $oneStrafe) { ?>
@@ -63,6 +62,9 @@ $strafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t.Bezeich
         <?php } ?>
     </table>
 </div>
+
+<!-- JavaScript Sort -->
+<script src="../sortTable.js"></script>
 
 </body>
 </html>

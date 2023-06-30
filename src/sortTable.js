@@ -1,6 +1,6 @@
 function sortTable(n) {
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("strafenkatalog");
+    table = document.getElementById("sortabletable");
     switching = true;
     //Set the sorting direction to ascending:
     dir = "asc";

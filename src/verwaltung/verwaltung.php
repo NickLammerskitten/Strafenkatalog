@@ -36,7 +36,16 @@ $erfassteStrafen = $conn->getData("SELECT t_HatStrafe.*, tS.Vorname, Nachname, t
 
 <!-- Content -->
 <div class="center">
-    <h1>Verwaltung</h1>
+    <div class="inline">
+        <h1>Verwaltung</h1>
+        <!-- Info Button -->
+        <div class="info" id="center">
+            &#9432;
+            <span class="extra-info" id="center">
+            Verwaltet alle Strafen.
+            </span>
+        </div>
+    </div>
     <h4>Strafe hinzufügen</h4>
     <form method="POST" action="strafeHinzufuegen.php">
         <label for="schuelerField">Schüler: </label><br>

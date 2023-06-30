@@ -27,8 +27,17 @@ $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bez
 <!-- Content -->
 <!-- Tabelle_Strafenkatalog -->
 <div class="center">
-    <h1>Strafenkatalog</h1>
-    <table id="strafenkatalog">
+    <div class="inline">
+        <h1>Strafenkatalog</h1>
+        <!-- Info Button -->
+        <div class="info" id="center">
+            &#9432;
+            <span class="extra-info" id="center">
+            Hier findest du eine Liste aller möglichen Strafen.
+            </span>
+        </div>
+    </div>
+    <table id="sortabletable">
         <tr>
             <th class="sortable" onclick="sortTable(0)">Fehlverhalten</th>
             <th>Strafe in €</th>
@@ -42,7 +51,7 @@ $strafen = $conn->getData("SELECT Bezeichnung, Kosten FROM t_Strafe ORDER BY Bez
     </table>
 </div>
 
-<script src="sortStrafen.ts"></script>
+<script src="../sortTable.js"></script>
 
 </body>
 </html>
